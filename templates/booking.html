@@ -1,0 +1,364 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Omyc Media</title>
+    <meta name="description" content="Welcome to Omyc Media, your go-to resource for graphic designing and live streaming services. Explore our extensive range of services designed to help you ">
+    <meta name="author" content="">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'images/my logo.jpg'%}" type="image/png" sizes="500x500">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+    <script src="{% static 'js/modernizr.js' %}"></script>
+    <script defer src="{% static 'js/fontawesome/all.min.js' %}"></script>
+
+
+</head>
+
+<body id="top">
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+
+    <header class="s-header">
+
+        <div class="s-header__logo">
+            <a href="/">
+                <img src="{% static 'images/christmax logo.gif' %}" alt="Omyc media logo" style="width: 100px;height: 100px;padding-top: 20px;">
+
+            </a>
+        </div>
+
+        <div class="s-header__content">
+    
+            <nav class="s-header__nav-wrap">
+                <ul class="s-header__nav">
+                    <li><a href="{% url 'index'%}" title="Intro">Home</a></li> 
+                </ul>
+            </nav> <!-- end s-header__nav-wrap -->
+
+           
+
+        </div> <!-- end header-content -->
+
+        <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+
+    </header> <!-- end s-header -->
+   
+    <section id="contact-form">
+        <div class="container w-full z-30 top-0 px-6 py-5">
+            <div class="section-content">
+                <!-- Section Title -->
+                <div class="title-wrap" data-aos="fade-up">
+                    <h2 class="section-title">Book Us</h2>
+                </div>
+                <!-- End of Section Title -->
+    
+                <div class="row justify-content-center">
+                    <div class="col-md-8 contact-form-holder mt-4" data-aos="fade-up">
+                        <!-- Success Message -->
+                        {% if messages %}
+    <div class="alert-messages">
+        {% for message in messages %}
+            <div class="alert alert-success text-center mb-4">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+    
+                        <!-- Contact Form -->
+                        <form method="post" name="contact-us" id="contact-form">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {{ form.packages.errors }}
+                                <label for="packages">Packages</label>
+                                <select id="packages" name="packages" class="form-control">
+                                    {% for value, display in form.packages.field.choices %}
+                                        <option value="{{ value }}" {% if value == form.packages.value %}selected{% endif %}>
+                                            {{ display }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                {{ form.name.errors }}
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" value="{{ form.data.name }}">
+                            </div>
+    
+                            <div class="form-group">
+                                {{ form.contact.errors }}
+                                <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact Number" value="{{ form.data.contact }}">
+                            </div>
+    
+                            <div class="form-group">
+                                {{ form.email.errors }}
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" value="{{ form.data.email }}">
+                            </div>
+    
+                            <div class="form-group">
+                                {{ form.address.errors }}
+                                <input type="text" class="form-control" id="address" name="address" placeholder="Address" value="{{ form.data.address }}">
+                            </div>
+    
+                            <div class="form-group">
+                                {{ form.event.errors }}
+                                <input type="text" class="form-control" id="event" name="event" placeholder="Event Type" value="{{ form.data.event }}">
+                            </div>
+    
+                            <div class="form-group">
+                                {{ form.date.errors }}
+                                <label for="date">Event Date:</label>
+                                <input type="date" class="form-control" id="date" name="date" value="{{ form.data.date }}">
+                            </div>
+    
+                            <div class="form-group">
+                                {{ form.service_type.errors }}
+                                <label for="service_type">Service Type</label>
+                                <select id="service_type" name="service_type" class="form-control">
+                                    {% for value, display in form.service_type.field.choices %}
+                                        <option value="{{ value }}" {% if value == form.service_type.value %}selected{% endif %}>
+                                            {{ display }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+    
+                            <div class="form-group">
+                                {{ form.time.errors }}
+                                <label for="time">Event Time:</label>
+                                <input type="time" class="form-control" id="time" name="time" value="{{ form.data.time }}">
+                            </div>
+    
+                            <div class="text-center">
+                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit" id="submit-btn">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+<style>/* General form styling */
+    #contact-form {
+        background-color: #f9fafb;  /* Light background */
+        padding: 2rem;
+    }
+    
+    #contact-form .section-content {
+        background-color: rgb(99, 95, 95);
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+    }
+    
+    #contact-form .title-wrap {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    #contact-form .section-title {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #333;
+        text-transform: uppercase;
+    }
+    
+    /* Form input fields */
+    #contact-form .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    #contact-form .form-control {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 20px;
+        border: 1px solid #0a0101;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+    
+    #contact-form .form-control:focus {
+        border-color: #3490dc;
+        box-shadow: 0 0 5px rgba(52, 144, 220, 0.5);
+    }
+    
+    #contact-form label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Submit Button */
+    #contact-form .btn-primary {
+        background-color: #3490dc;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        color: rgb(3, 1, 1);
+        font-weight: bold;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+    
+    #contact-form .btn-primary:hover {
+        background-color: #2779bd;
+    }
+    
+    #contact-form .btn-shadow {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Centering form in the column */
+    .row.justify-content-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .col-md-8 {
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        #contact-form .col-md-8 {
+            width: 100%;
+        }
+    }
+    .alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+    </style>    
+    
+    <!-- footer
+    ================================================== -->
+    <footer class="s-footer">
+        <div class="row row-y-top">
+
+            <div class="column large-8 medium-12">
+                <div class="row">
+                    <div class="column large-7 tab-12 s-footer__block">
+                        <h4 class="h6">Where to Find Us</h4>
+        
+                        <p>
+                        Asante Mampong <br>
+                        Asikafoɔamantɛm <br>
+                        <a href="tel:+233256251295">+233256251295</a>
+                        </p>
+                    </div>
+        
+                    <div class="column large-5 tab-12 s-footer__block">
+                        <h4 class="h6">Follow Us</h4 class="h6">
+        
+                        <ul class="s-footer__list">
+                            <li><a href="https://www.facebook.com/profile.php?id=61554059577688">Facebook</a></li>
+                          
+                            <li><a href="https://www.instagram.com/omyc5?igsh=eGduZGRhank3d3Fl">Instagram</a></li>
+                         
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column large-4 medium-12 s-footer__block--end">
+                <a href="https://wa.me/+233547039326" class="btn h-full-width">Let's Talk</a>
+
+                <div class="ss-copyright">
+                    <span>&copy; Copyright OMYC Media 2024</span> 
+                    <span><a class="nav-link" href="https://wa.me/+233506632349">
+                        <small>SM_Jay</small>&nbsp;<i class="fab fa-whatsapp" style="font-size: 14px;"></i>
+                       </a></span>
+                </div>
+            </div>
+
+            <div class="ss-go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top">
+                    top
+                </a>
+            </div> <!-- end ss-go-top -->
+
+        </div>
+    </footer>
+    
+
+    <!-- photoswipe background
+    ================================================== -->
+    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
+
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title=
+                    "Share"></button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title=
+                    "Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title=
+                "Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+
+        </div>
+        
+
+    </div> <!-- end photoSwipe background -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

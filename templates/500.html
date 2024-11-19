@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Omyc Media, your go-to resource for graphic designing and live streaming services. Explore our extensive range of services designed to help you ">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Omyc Media</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+    <link rel="icon" href="{% static 'img/my logo.jpg' %}" type="image/png">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/bootstrap.min.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Work+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+    <style>
+        .work-sans {
+            font-family: 'Work Sans', sans-serif;
+        }
+                
+        #menu-toggle:checked + #menu {
+            display: block;
+        }
+        
+        .hover\:grow {
+            transition: all 0.3s;
+            transform: scale(1);
+        }
+        
+        .hover\:grow:hover {
+            transform: scale(1.02);
+        }
+        
+        
+    </style>
+
+</head>
+
+<body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
+
+    <!--Nav-->
+    <nav id="header" class="w-full z-30 top-0 py-4 fixed bg-white shadow">
+        <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-0 py-0">
+            <button id="menu-button" class="md:hidden block">
+                <!-- Menu Icon -->
+                <svg id="menu-icon" class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <title>menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+                <!-- Close Icon (hidden by default) -->
+                <svg id="close-icon" class="fill-current text-gray-900 hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <title>close</title>
+                    <path d="M14.348 14.849a1.2 1.2 0 01-1.697 0L10 12.207l-2.651 2.641a1.2 1.2 0 01-1.697-1.697l2.641-2.651-2.641-2.651a1.2 1.2 0 011.697-1.697L10 9.793l2.651-2.641a1.2 1.2 0 011.697 1.697L12.207 10l2.641 2.651a1.2 1.2 0 010 1.697z"></path>
+                </svg>
+            </button>
+            <input class="hidden" type="checkbox" id="menu-toggle" />
+            <label for="menu-toggle" class="cursor-pointer md:hidden block" id="close-menu" style="display:none;">
+                <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <title>close</title>
+                    <path d="M14.348 14.849a1.2 1.2 0 01-1.697 0L10 12.207l-2.651 2.641a1.2 1.2 0 01-1.697-1.697l2.641-2.651-2.641-2.651a1.2 1.2 0 011.697-1.697L10 9.793l2.651-2.641a1.2 1.2 0 011.697 1.697L12.207 10l2.641 2.651a1.2 1.2 0 010 1.697z"></path>
+                </svg>
+            </label>
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+                <nav>
+                    <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4 nav-link scrollto" href="/">Home</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4 nav-link scrollto" href="#services">Services</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4 nav-link scrollto" href="#about">About</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4 nav-link scrollto" href="{% url 'blog' %}">Radio</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4 nav-link scrollto" href="{%url 'contact'%}">Contact</a></li>
+                        <li class="col-md-5 text-center"> <a href="{% url 'booking' %}"class="btn btn-primary btn-shadow btn-lg" ><button>Book Us</button></a></li>
+                     
+                           
+                        
+                    </ul>
+                </nav>
+            </div>
+    
+            <div class="order-1 md:order-2">
+                <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="/">
+                  
+                        <img src="{% static 'img/my logo.jpg' %}" alt="Logo" class="h-12">
+                
+                     
+                    <div style="padding-right: 120px;"> OMYC MEDIA</div>
+                   
+                </a>
+            </div>
+    
+        </div>
+    </nav>
+    <section id="error"><p>
+        Sorry,your requested resource can't be found
+    </p>
+        <a class="btn btn-secondary" href="/">Move back to Safety</a>
+        </section>
+<style>
+    #error{
+        padding-top: 300px;
+        padding-bottom: 200px;
+        text-align: center;
+    }
+  
+</style>
+    <center> <footer class="mastfoot my-3" id="contact">
+        <div class="inner container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 d-flex align-items-center">
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <nav class="nav nav-mastfoot justify-content-center">
+                   
+                        <a class="nav-link" href="https://wa.me/+233547039326">
+                            <i class="fab fa-whatsapp" style="font-size: 20px;"></i>
+                        </a>
+                        <a class="nav-link" href="https://www.facebook.com/profile.php?id=61554059577688">
+                            <i class="fab fa-facebook-f" style="font-size: 20px;"></i>
+                        </a>
+                        <a class="nav-link" href="https://www.instagram.com/omyc5?igsh=eGduZGRhank3d3Fl">
+                            <i class="fab fa-instagram" style="font-size: 20px;"></i>
+                        </a>
+                        <a class="nav-link" href="https://www.youtube.com/channel/UCS5bJXDKxz8JKL68XyELJLg">
+                            <i class="fab fa-youtube" style="font-size: 20px;"></i>
+                        </a>
+                    </a>
+    
+                 
+                    </a>
+                    </nav>
+                   
+                       
+                       
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+       
+            </div>
+        </div>
+
+
+ 
+  
+
+    
+        <a class="nav-link" href="https://wa.me/+233506632349">
+            &copy;<small>SM_Jay</small>&nbsp;<i class="fab fa-whatsapp" style="font-size: 14px;"></i>
+           </a>
+       </footer>	</center>
+       
+    
+</body>
+<script>document.addEventListener("DOMContentLoaded", function() {
+    var menuButton = document.getElementById('menu-button');
+    var menuIcon = document.getElementById('menu-icon');
+    var closeIcon = document.getElementById('close-icon');
+    var menu = document.getElementById('menu');
+
+    menuButton.addEventListener('click', function() {
+        // Toggle the menu's visibility
+        if (menu.classList.contains('hidden')) {
+            menu.classList.remove('hidden');
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+        } else {
+            menu.classList.add('hidden');
+            closeIcon.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+        }
+    });
+});
+
+    </script>
+</html>

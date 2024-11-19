@@ -1,0 +1,255 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Omyc Media</title>
+    <meta name="description" content="Welcome to Omyc Media, your go-to resource for graphic designing and live streaming services. Explore our extensive range of services designed to help you ">
+    <meta name="author" content="">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'images/my logo.jpg'%}" type="image/png" sizes="500x500">
+
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+    <script src="{% static 'js/modernizr.js' %}"></script>
+    <script defer src="{% static 'js/fontawesome/all.min.js' %}"></script>
+
+
+</head>
+
+<body id="top">
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+
+    <header class="s-header">
+
+        <div class="s-header__logo">
+            <a href="/">
+                <img src="{% static 'images/christmax logo.gif' %}" alt="Omyc media logo" style="width: 100px;height: 100px;padding-top: 20px;">
+
+            </a>
+        </div>
+
+        <div class="s-header__content">
+    
+            <nav class="s-header__nav-wrap">
+                <ul class="s-header__nav">
+                    <li><a href="{% url 'index'%}" title="Intro">Home</a></li> 
+                </ul>
+            </nav> <!-- end s-header__nav-wrap -->
+
+            <a href="mailto:#0" class="btn btn--primary btn--small">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" he
+                ight="24" viewBox="0 0 24 24"><path d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"/></svg>
+                Get In Touch
+            </a>
+
+        </div> <!-- end header-content -->
+
+        <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+
+    </header> <!-- end s-header -->
+
+    <section id="portfolio" class="s-portfolio">
+
+        <div class="row s-porfolio__top">
+            <div class="column large-6 w-900-stack">
+                <h1 class="display-1" data-aos="fade-up">
+                    Here are some of our projects we done lately. Feel
+                    free to check them out.
+                </h1>
+            </div>
+        </div> <!-- end s-portfolio__top-->
+
+        <div class="row s-portfolio__list block-large-1-2 block-tab-full collapse">
+            {% for gallery in galleries %}
+            <div class="column" data-aos="fade-up">
+                
+                    <div class="folio-item__thumb">
+                        <a class="folio-item__thumb-link" href="{{ gallery.media_url }}" 
+                           title="{{ gallery.name }}" data-size="1050x700">
+                            {% if gallery.is_image %}
+                                <img src="{% static '{{ gallery.media_url }}' %}" srcset="{{ gallery.media_url }}" alt="{{ gallery.name }}">
+                            {% elif gallery.is_video %}
+                                <video controls width="100%" height="auto">
+                                    <source src="{% static '{{ gallery.media_url }}' %}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="folio-item__info">
+                        <div class="folio-item__cat">{{ gallery.media_type|capfirst }}</div>
+                        <h4 class="folio-item__title">{{ gallery.name }}</h4>
+                    </div>
+                   
+                    <div class="folio-item__caption"></div>
+               
+            </div> <!-- end column -->
+            {% endfor %}
+     
+        
+        </div> <!-- folio-list -->
+
+    </section>
+    <!-- hero
+    ================================================== -->
+    <section id="hero" class="s-hero target-section">
+
+       
+          
+
+        <div class="row s-hero__content">
+            <div class="column">
+
+    
+                    
+                </div>
+
+            </div>
+        </div>
+
+      
+
+        
+
+    </section>
+    <section class="s-contact">
+
+        <div class="row narrower s-contact__top h-text-center">
+            <div class="column">
+                <h3 class="h6">Get In Touch</h3>
+                <h1 class="display-1">
+                Have an idea or an epic project in mind? Talk to
+                us. Let us work together and make something great.
+                Shoot us a message at
+                </h1>
+            </div>
+        </div> <!-- s-footer__top -->
+
+        <div class="row h-text-center">
+            <div class="column">
+                <p class="s-contact__email">
+                    <a href="mailto:ranchomyc2019@gmail.com">ranchomyc2019@gmail.com</a>
+                </p>
+            </div>
+        </div>
+
+    </section>  <!-- end s-contact -->
+
+
+    <!-- footer
+    ================================================== -->
+    <footer class="s-footer">
+        <div class="row row-y-top">
+
+            <div class="column large-8 medium-12">
+                <div class="row">
+                    <div class="column large-7 tab-12 s-footer__block">
+                        <h4 class="h6">Where to Find Us</h4>
+        
+                        <p>
+                        Asante Mampong <br>
+                        Asikafoɔamantɛm <br>
+                        <a href="tel:+233256251295">+233256251295</a>
+                        </p>
+                    </div>
+        
+                    <div class="column large-5 tab-12 s-footer__block">
+                        <h4 class="h6">Follow Us</h4 class="h6">
+        
+                        <ul class="s-footer__list">
+                            <li><a href="https://www.facebook.com/profile.php?id=61554059577688">Facebook</a></li>
+                          
+                            <li><a href="https://www.instagram.com/omyc5?igsh=eGduZGRhank3d3Fl">Instagram</a></li>
+                         
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column large-4 medium-12 s-footer__block--end">
+                <a href="https://wa.me/+233547039326" class="btn h-full-width">Let's Talk</a>
+
+                <div class="ss-copyright">
+                    <span>&copy; Copyright OMYC Media 2024</span> 
+                    <span><a class="nav-link" href="https://wa.me/+233506632349">
+                        <small>SM_Jay</small>&nbsp;<i class="fab fa-whatsapp" style="font-size: 14px;"></i>
+                       </a></span>
+                </div>
+            </div>
+
+            <div class="ss-go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top">
+                    top
+                </a>
+            </div> <!-- end ss-go-top -->
+
+        </div>
+    </footer>
+    
+
+    <!-- photoswipe background
+    ================================================== -->
+    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
+
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title=
+                    "Share"></button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title=
+                    "Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title=
+                "Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+
+        </div>
+        
+
+    </div> <!-- end photoSwipe background -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Welcome to Omyc Media, your go-to resource for graphic designing and live streaming services. Explore our extensive range of services designed to help you ">
+    <title>Omyc Media</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+    <link rel="icon" href="{% static 'img/my logo.jpg' %}" type="image/png">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/select2/select2.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'vendor/lightcase/lightcase.css' %}">
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Work+Sans:300,400,700" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+    <style>
+        .work-sans {
+            font-family: 'Work Sans', sans-serif;
+        }
+                
+        #menu-toggle:checked + #menu {
+            display: block;
+        }
+        
+        .hover\:grow {
+            transition: all 0.3s;
+            transform: scale(1);
+        }
+        
+        .hover\:grow:hover {
+            transform: scale(1.02);
+        }
+        
+        .carousel-open:checked + .carousel-item {
+            position: static;
+            opacity: 100;
+        }
+        
+        .carousel-item {
+            -webkit-transition: opacity 0.6s ease-out;
+            transition: opacity 0.6s ease-out;
+        }
+        
+        #carousel-1:checked ~ .control-1,
+        #carousel-2:checked ~ .control-2,
+        #carousel-3:checked ~ .control-3 {
+            display: block;
+        }
+        
+        .carousel-indicators {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            bottom: 2%;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 10;
+        }
+        
+        #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+        #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+        #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+            color: #000;
+            /*Set to match the Tailwind colour you want the active one to be */
+        }
+        
+    </style>
+
+</head>
+
+<body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
+
+    <!--Nav-->
+    <nav id="header" class="w-full z-30 top-0 py-4 fixed bg-white shadow">
+        <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-0 py-0">
+    
+            <button id="menu-button" class="md:hidden block">
+                <!-- Menu Icon -->
+                <svg id="menu-icon" class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <title>menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+                <!-- Close Icon (hidden by default) -->
+                <svg id="close-icon" class="fill-current text-gray-900 hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <title>close</title>
+                    <path d="M14.348 14.849a1.2 1.2 0 01-1.697 0L10 12.207l-2.651 2.641a1.2 1.2 0 01-1.697-1.697l2.641-2.651-2.641-2.651a1.2 1.2 0 011.697-1.697L10 9.793l2.651-2.641a1.2 1.2 0 011.697 1.697L12.207 10l2.641 2.651a1.2 1.2 0 010 1.697z"></path>
+                </svg>
+            </button>
+            <input class="hidden" type="checkbox" id="menu-toggle" />
+    
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+                <nav>
+                    <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4 nav-link scrollto" href="/">Home</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4 nav-link scrollto" href="{% url 'index' %}#services">Services</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4 nav-link scrollto" href="{% url 'index' %}#about">About</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4 nav-link scrollto" href="{% url 'blog' %}">Radio</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4 nav-link scrollto" href="{% url 'contact' %}">Contact</a></li>
+                        <li class="col-md-52 text-center"> <a href="{% url 'booking' %}"class="btn btn-primary btn-shadow btn-lg" ><button>Book Us</button></a></li>
+                    </ul>
+                </nav>
+            </div>
+    
+            <div class="order-1 md:order-2">
+                <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="/">
+                    <div class="flex items-center space-x-2">
+                        <img src="{% static 'img/my logo.jpg' %}" alt="Logo" class="h-12">
+                    </div>
+                    <div style="padding-right: 120px;"> OMYC MEDIA</div>
+                </a>
+            </div>
+    
+        </div>
+    </nav>
+    <div class="jumbotron jumbotron-single d-flex align-items-center">
+        <div class="container text-center">
+          <h1 class="display-2 mb-4">{{ blog_type.name }}</h1>
+        </div>
+      </div>	
+      
+      </div>
+      <div id="blog-section" class="bg-grey">
+          <div class="container">
+              <div class="section-content">
+                  <div class="title-wrap mb-5" data-aos="fade-up">
+                      <h2 class="section-title"></b></h2>
+                  </div>
+                  <div class="row">
+                    
+                      <div class="col-md-12 blog-holder">
+                          <div class="row">
+                          
+                              {% for blog in page_obj %}
+                              <div class="col-md-4 blog-item-wrapper" data-aos="fade-up">
+                                 
+                                  <div class="blog-item">
+      
+                                          <div class="blog-img">
+                                              {% if blog.image %}
+                                                  <a href="{% url 'post' blog_id=blog.pk  %}"><img src="{{blog.imageURL}}" alt=""></a>
+                                              {% endif %}
+                                          </div>
+                                          <div class="blog-text">
+                                              <div class="blog-title">
+                                                  <a href="{% url 'post' blog_id=blog.pk  %}"><h4><b>{{blog.title}}</b></h4></a>
+                                              </div>
+                                              <div class="blog-meta">
+                                                  <p class="blog-date"><b>Published on:{{blog.date}}</b></p>
+                                              
+                                              </div>
+                                              <div class="blog-desc">
+                                                  <p>{{blog.content|truncatewords:20}}</p>
+                                              </div>
+                                              <div class="blog-author">
+                                                  <p>{{blog.author}}</p>
+                                              </div>
+                                             
+                                          </div>
+                                     
+                                  </div>
+                              
+                              </div>
+                              {% endfor %}
+                          </div>
+                      </div>
+                      <!-- End of Blog -->
+                  </div>
+              </div>
+          </div>
+      
+       
+      </div>
+ 
+<center><footer class="mastfoot my-3" id="contact">
+    <div class="inner container">
+        <div class="row">
+            <div class="col-lg-4 col-md-12 d-flex align-items-center">
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <nav class="nav nav-mastfoot justify-content-center">
+           
+                    <a class="nav-link" href="https://wa.me/+233547039326">
+                        <i class="fab fa-whatsapp" style="font-size: 20px;"></i>
+                    </a>
+                    <a class="nav-link" href="https://www.facebook.com/profile.php?id=61554059577688">
+                        <i class="fab fa-facebook-f" style="font-size: 20px;"></i>
+                    </a>
+                    <a class="nav-link" href="https://www.instagram.com/omyc5?igsh=eGduZGRhank3d3Fl">
+                        <i class="fab fa-instagram" style="font-size: 20px;"></i>
+                    </a>
+                    <a class="nav-link" href="https://www.youtube.com/channel/UCS5bJXDKxz8JKL68XyELJLg">
+                        <i class="fab fa-youtube" style="font-size: 20px;"></i>
+                    </a>
+                </a>
+
+             
+       
+                </a>
+                </nav>
+               
+                   
+                   
+                    
+       
+    <a class="nav-link" href="https://wa.me/+233506632349">
+       &copy;<small>SM_Jay</small>&nbsp;<i class="fab fa-whatsapp" style="font-size: 14px;"></i>
+    </a>
+</footer>	</center>
+
+    
+
+
+</body>
+<script>document.addEventListener("DOMContentLoaded", function() {
+    var menuButton = document.getElementById('menu-button');
+    var menuIcon = document.getElementById('menu-icon');
+    var closeIcon = document.getElementById('close-icon');
+    var menu = document.getElementById('menu');
+
+    menuButton.addEventListener('click', function() {
+        // Toggle the menu's visibility
+        if (menu.classList.contains('hidden')) {
+            menu.classList.remove('hidden');
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+        } else {
+            menu.classList.add('hidden');
+            closeIcon.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+        }
+    });
+});
+
+    </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
