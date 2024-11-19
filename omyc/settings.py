@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-ec$32@e0uhf3n=!al=c@al4z)_4_-tipu3np74vdesjan97)5!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,7 +77,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ranchomyc2019@gmail.com'
 EMAIL_HOST_PASSWORD = 'qwyg swvm qwyx wmwi'
 DEFAULT_FROM_EMAIL = 'ranchomyc2019@gmail.com'
-
 WSGI_APPLICATION = 'omyc.wsgi.application'
 
 

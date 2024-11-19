@@ -1,1 +1,1 @@
-web: gunicorn media.wsgi --log-file -
+web: gunicorn omyc.wsgi --log-file -
