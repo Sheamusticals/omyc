@@ -78,6 +78,7 @@ EMAIL_HOST_USER = 'ranchomyc2019@gmail.com'
 EMAIL_HOST_PASSWORD = 'qwyg swvm qwyx wmwi'
 DEFAULT_FROM_EMAIL = 'ranchomyc2019@gmail.com'
 
+WSGI_APPLICATION = 'omyc.wsgi.application'
 
 
 
