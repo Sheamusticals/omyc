@@ -1,1 +1,1 @@
-web: gunicorn omyc.wsgi --log-file -
+web: gunicorn omyc.wsgi:application --log-file -
