@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
-    'omyc-production-b64e.up.railway.app',
+    'https://omyc-production-b64e.up.railway.app',
 ]
 
 
