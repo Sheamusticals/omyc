@@ -372,7 +372,7 @@ for (let i = 0; i < 10; i++) {
                 <div class="folio-item">
                     <div class="folio-item__thumb">
                         <a class="folio-item__thumb-link" href="{{portfolio.imageURL}}" title="{{portfolio.service_type}}" data-size="1050x700">
-                            <img src="{{portfolio.imageURL}}" 
+                            <img src="{% static '{{portfolio.imageURL}}' %}" 
                             srcset="{{ portfolio.imageURL }}" alt="">
                         </a>
                     </div>
@@ -414,7 +414,7 @@ for (let i = 0; i < 10; i++) {
                         </p>
                         <div class="testimonial-slider__author">
                             {% if testimonial.image %}
-                        <img src="{{testimonial.imageURL}}" alt="Author image" class="testimonial-slider__avatar">
+                        <img src="{% static '{{testimonial.imageURL}}' %}" alt="Author image" class="testimonial-slider__avatar">
                         {% endif %}
                             <cite class="testimonial-slider__cite">
                                 <strong>{{testimonial.name}}</strong>
